@@ -1,0 +1,12 @@
+New Entry:
+
+<%= form_for :article, url: articles_path do |blog| %><br>
+  <%= blog.label :title %><br>
+  <%= blog.text_field(:title, size: "70") %>
+  <p></p>
+
+  <%= blog.label :content %><br>
+  <%= blog.text_area(:content, size: "50x15") %><br>
+
+  <%= blog.submit "Save Entry" %><br>
+<% end %>
