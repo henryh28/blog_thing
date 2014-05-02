@@ -1,9 +1,9 @@
-New Entry:
+<header>Edit mode</header>
 
-<%= form_for :article, url: articles_path do |blog| %><br>
+<%= form_for :article, url: article_path(@article), method: :put do |blog| %>
   <% if @article.errors.any? %>
     <div class="alert">
-      <%= pluralize(@article.errors.count, "error") %>.  Entry could not be saved:
+      <%= pluralize(@article.errors.count, "error") %> Entry could not be saved.
       <ul>
         <% @article.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,14 +12,16 @@ New Entry:
     </div>
   <% end %>
 
+  <br>
+
   <%= blog.label :title %><br>
-  <%= blog.text_field(:title, size: "70") %>
-  <p></p>
+  <%= blog.text_field :title %><br>
 
   <%= blog.label :content %><br>
   <%= blog.text_area(:content, size: "50x15") %><br>
 
-  <%= blog.submit "Save Entry" %><br>
+  <%= blog.submit "Save changes" %><br>
+
 <% end %>
 
-<%= link_to "return home", root_path %>
+<%= link_to "Return Home", root_path %>

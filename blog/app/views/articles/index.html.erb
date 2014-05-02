@@ -1,4 +1,4 @@
-<title>All entries</title>
+<header>All entries</header>
 
 <table>
   <tr>
@@ -10,8 +10,12 @@
   <tr>
     <td><%= article.title %></td>
     <td><%= article.content %></td>
+    <td><%= link_to "Show", article_path(article) %></td>
+    <td><%= link_to "Edit", edit_article_path(article) %></td>
   </tr>
   <% end %>
-
 </table>
 
+<br>
+
+<%= link_to "Return Home", root_path %>
