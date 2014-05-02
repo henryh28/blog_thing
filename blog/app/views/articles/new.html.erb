@@ -1,25 +1,5 @@
 New Entry:
 
-<%= form_for :article, url: articles_path do |blog| %><br>
-  <% if @article.errors.any? %>
-    <div class="alert">
-      <%= pluralize(@article.errors.count, "error") %>.  Entry could not be saved:
-      <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= blog.label :title %><br>
-  <%= blog.text_field(:title, size: "70") %>
-  <p></p>
-
-  <%= blog.label :content %><br>
-  <%= blog.text_area(:content, size: "50x15") %><br>
-
-  <%= blog.submit "Save Entry" %><br>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to "return home", root_path %>

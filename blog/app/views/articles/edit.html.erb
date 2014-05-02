@@ -1,27 +1,5 @@
 <header>Edit mode</header>
 
-<%= form_for :article, url: article_path(@article), method: :put do |blog| %>
-  <% if @article.errors.any? %>
-    <div class="alert">
-      <%= pluralize(@article.errors.count, "error") %> Entry could not be saved.
-      <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <br>
-
-  <%= blog.label :title %><br>
-  <%= blog.text_field :title %><br>
-
-  <%= blog.label :content %><br>
-  <%= blog.text_area(:content, size: "50x15") %><br>
-
-  <%= blog.submit "Save changes" %><br>
-
-<% end %>
+<%= render "form" %>
 
 <%= link_to "Return Home", root_path %>
