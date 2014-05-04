@@ -4,31 +4,14 @@
 <%= @article.title %><br>
 
 <strong>Content:</strong>
-<%= @article.content %>
-
-<br>
+<%= @article.content %><br>
 
 <h3>Comments</h3>
-<% @article.comments.each do |comment| %>
-  <p>
-    <%= comment.commenter %> posted on <%= comment.created_at.strftime("%b %e, %y at %r") %>: <br>
-    <%= comment.content %><br>
-  </p>
-<% end %>
-
+<%= render @article.comments %>
 
 Add comment:
-<br>
-<%= form_for ([@article, @article.comments.build]) do |comment| %>
-  <%= comment.label :commenter %><br>
-  <%= comment.text_field :commenter %><br>
-  <%= comment.label :content %><br>
-  <%= comment.text_area(:content, size: "50x15") %><br>
-  <%= comment.submit "Add comment" %>
+<%= render "comments/form" %><br>
 
-<% end %>
-
-<%= link_to "Edit entry", edit_article_path %>
-<br>
+<%= link_to "Edit entry", edit_article_path %><br>
 <%= link_to "Return to home", articles_path %>
 
