@@ -1,24 +1,41 @@
-
 <%= form_for @article do |blog| %>
-  <% if @article.errors.any? %>
-    <div class="alert">
-      <%= pluralize(@article.errors.count, "error") %> Entry could not be saved.
-      <ul>
-        <% @article.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <% if @article.errors.any? %>
+      <div class="alert">
+        <%= pluralize(@article.errors.count, "error") %> Entry could not be saved.
+        <ul>
+          <% @article.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <br>
+    <br>
 
-  <%= blog.label :title %><br>
-  <%= blog.text_field :title %><br>
+  <table>
+    <tr>
+      <th>
+        <%= blog.label :title %>
+      </th>
+      <td>
+        <%= blog.text_field :title, size: "70" %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <%= blog.label :content %>
+      </th>
+      <td>
+        <%= blog.text_area(:content, size: "50x15") %>
+      </td>
+    </tr>
+    <tr>
+      <th>
+      </th>
+      <td>
+        <%= blog.submit "Save changes" %><br>
+      </td>
+    </tr>
 
-  <%= blog.label :content %><br>
-  <%= blog.text_area(:content, size: "50x15") %><br>
-
-  <%= blog.submit "Save changes" %><br>
-
+  </table>
 <% end %>
